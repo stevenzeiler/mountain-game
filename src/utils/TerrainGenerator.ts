@@ -1,8 +1,17 @@
 export class TerrainGenerator {
-  private seed: number;
+  private p: number[];
 
   constructor(seed: number = Math.random()) {
-    this.seed = seed;
+    // Use seed to initialize random number generator
+    Math.random = () => {
+      seed = Math.sin(seed) * 10000;
+      return seed - Math.floor(seed);
+    };
+    
+    this.p = Array.from({ length: 512 }, (_: unknown, i: number): number => {
+      const temp = Array.from({ length: 256 }, () => Math.floor(Math.random() * 256));
+      return i < 256 ? temp[i] : temp[i - 256];
+    });
   }
 
   private noise2D(x: number, y: number): number {
@@ -44,11 +53,6 @@ export class TerrainGenerator {
     const grad = 1 + (h & 7);
     return ((h & 8) ? -grad : grad) * x + ((h & 4) ? -grad : grad) * y;
   }
-
-  private p = Array.from({ length: 512 }, (_, i) => {
-    if (i < 256) return Math.floor(Math.random() * 256);
-    return this.p[i - 256];
-  });
 
   public getHeight(x: number, z: number): number {
     // Generate height using multiple octaves of noise
