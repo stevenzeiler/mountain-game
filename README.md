@@ -2,7 +2,7 @@
 
 A small Three.js prototype: walk, jump and sprint through a generated mountain landscape with trees, a road, a river, a bridge and a bus. The package is named `andorra-game`, and the in-game title screen says "Andorora Mountain Explorer".
 
-**Status:** dormant since 2025-02. Two commits on one afternoon (2025-02-27). It is an experiment, not a finished game. I have not run it for this README, so the steps below come from `package.json` and the source.
+**Status:** dormant since 2025-02. Two commits on one afternoon (2025-02-27). It is an experiment, not a finished game. The steps below come from `package.json` and the source; they were not run for this README.
 
 ## Install
 
@@ -26,7 +26,7 @@ Open the URL Vite prints. A title screen lists the controls:
 |---|---|
 | W / A / S / D | Move |
 | Space | Jump |
-| Shift | Sprint |
+| Left Shift | Sprint |
 | Mouse | Look around |
 | Left / right arrows | Turn |
 
